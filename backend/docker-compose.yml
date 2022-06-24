@@ -1,0 +1,17 @@
+version: '3.3'
+
+services:
+  nectia-backend:
+    build: .
+    restart: always
+    environment:
+      NODE_ENV: development
+      HOST: http://localhost
+      PORT: 5000
+      JWT_SECRET: 123456
+      CONNECTIONSTRING: postgres://pjnzivnzkhafpf:d29cc735fd387f0b370448384de397a3dbe87cd03a76e87018a036f3b6951e8c@ec2-23-23-182-238.compute-1.amazonaws.com:5432/dbu49qllfacag3
+      DEBUG: nodejs-docker-express:*
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/src
